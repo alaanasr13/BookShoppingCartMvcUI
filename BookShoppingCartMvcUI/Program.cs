@@ -1,7 +1,9 @@
 using BookShoppingCartMvcUI;
 using BookShoppingCartMvcUI.Data;
+using BookShoppingCartMvcUI.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +18,8 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
-builder.Services.AddTransient<IHomeRepository,IHomeRepository>();
-var app = builder.Build();
-
+builder.Services.AddTransient<IHomeRepository, HomeRepository>();
+var app =builder.Build();
 // Uncomment it when you run the project first time, It will registered an admin
 using (var scope = app.Services.CreateScope())
 {

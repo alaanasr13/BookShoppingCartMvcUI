@@ -24,7 +24,6 @@ namespace BookShoppingCartMvcUI.Repositories
                           on book.GenreId equals genre.Id
                           where string.IsNullOrWhiteSpace (sTerm) || (book != null && book.BookName.ToLower().StartsWith(sTerm))
 
-
                        select new Book
                        {
                            Id = book.Id,
