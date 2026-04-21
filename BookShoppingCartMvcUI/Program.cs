@@ -1,3 +1,4 @@
+using BookShoppingCartMvcUI;
 using BookShoppingCartMvcUI.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
-
+builder.Services.AddTransient<IHomeRepository,IHomeRepository>();
 var app = builder.Build();
 
 // Uncomment it when you run the project first time, It will registered an admin
